@@ -1,0 +1,19 @@
+## Interface: 16001
+## Title: Auction Broker
+## Notes: Auction house price scanner
+## Author: Sergei Fabian
+## Version: 1.0.0
+## SavedVariables: AuctionBrokerDB
+
+Core/Constants.lua
+Core/Database.lua
+Core/Utils.lua
+
+Auction/AuctionQuery.lua
+Auction/AuctionFullScanner.lua
+Auction/AuctionScanner.lua
+
+UI/AuctionTab.lua
+Tooltip/AuctionTooltip.lua
+
+AuctionBroker.lua
