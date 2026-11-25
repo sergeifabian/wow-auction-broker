@@ -129,10 +129,6 @@ function UI:Refresh()
 end
 
 local function InitAuctionTab()
-    print("|cffffd700DeepBroker: InitAuctionTab called|r")
-    print("AuctionHouseFrame:", AuctionHouseFrame)
-    print("AuctionHouseFrame.Tabs:", AuctionHouseFrame and AuctionHouseFrame.Tabs)
-
     if tabCreated
         or not AuctionHouseFrame
         or not AuctionHouseFrame.Tabs
