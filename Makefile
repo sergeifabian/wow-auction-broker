@@ -24,10 +24,14 @@ package: clean
 	@mkdir -p $(ADDON)
 	@rsync -a $(EXCLUDES) ./ $(ADDON)/
 	@echo ">> Архивирую..."
-	@cd $(ADDON) && zip -r -X ../$(ARCHIVE) . -x '*.DS_Store' -x '*/__MACOSX/*' -x '*/._*'
+	@zip -r -X $(ARCHIVE) $(ADDON) \
+		-x '*.DS_Store' -x '*/__MACOSX/*' -x '*/._*'
 	@echo ">> Готово: $(ARCHIVE)"
 	@echo ">> Содержимое архива:"
 	@unzip -l $(ARCHIVE)
+	@echo ">> Проверка на мусор..."
+	@! unzip -Z1 $(ARCHIVE) | grep -E '(__MACOSX|\.DS_Store|/\._|^\._|\.git/|Makefile|\.gitignore|LICENSE|COPYING)' \
+		|| (echo "!! В архиве найден мусор" && exit 1)
 
 # Удалить результаты сборки
 clean:
