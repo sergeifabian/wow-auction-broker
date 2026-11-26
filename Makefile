@@ -4,11 +4,18 @@ ARCHIVE   := $(ADDON).zip
 
 # Что НЕ копируем в чистую папку
 EXCLUDES  := --exclude='.git' --exclude='__MACOSX' --exclude='*.DS_Store' \
-             --exclude='._*' --exclude='$(ADDON)' --exclude='$(ARCHIVE)'
+             --exclude='._*' --exclude='$(ADDON)' --exclude='$(ARCHIVE)' \
+             --exclude='.gitignore' --exclude='LICENSE*' --exclude='COPYING*'
 
-.PHONY: all clean package
+.DEFAULT_GOAL := help
+.PHONY: help package clean
 
-all: package
+# Справка по целям
+help:
+	@echo "Доступные команды:"
+	@echo "  make package   Собрать чистую папку $(ADDON)/ и архив $(ARCHIVE)"
+	@echo "  make clean     Удалить $(ADDON)/ и $(ARCHIVE)"
+	@echo "  make help      Показать эту справку"
 
 # Собрать чистую папку и заархивировать
 package: clean
