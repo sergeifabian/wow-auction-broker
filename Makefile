@@ -5,7 +5,8 @@ ARCHIVE   := $(ADDON).zip
 # Что НЕ копируем в чистую папку
 EXCLUDES  := --exclude='.git' --exclude='__MACOSX' --exclude='*.DS_Store' \
              --exclude='._*' --exclude='$(ADDON)' --exclude='$(ARCHIVE)' \
-             --exclude='.gitignore' --exclude='LICENSE*' --exclude='COPYING*'
+             --exclude='.gitignore' --exclude='LICENSE*' --exclude='COPYING*' \
+             --exclude='Makefile' --exclude='makefile' --exclude='GNUmakefile'
 
 .DEFAULT_GOAL := help
 .PHONY: help package clean
