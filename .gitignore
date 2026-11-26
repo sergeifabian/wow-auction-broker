@@ -1,1 +1,8 @@
+# Результаты сборки Makefile
+AuctionBroker/
+AuctionBroker.zip
+
+# macOS
 .DS_Store
+__MACOSX/
+._*
